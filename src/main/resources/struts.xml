@@ -4,11 +4,37 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.objectFactory" value="spring" />
 	<package name="default" extends="json-default">
-	<interceptors>
+		<interceptors>
 			<interceptor name="log"
 				class="com.strut.ProfileInterceptor" />
 		</interceptors>
 	
+	
+	
+	
+<action name="exampleStrutLogin"  
+class="com.strut.ExampleStrut" method="checkCredentials">	
+		 <result name="success">examplewelcome.jsp</result>
+   		 <result type="json" name="failure"></result> 	
+</action>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<action name="strutlogin" 
+		class="com.strut.TestStrutAction"
+			method="login">
+			<result name="success">welcome.jsp</result>
+			<result name="failure">error.jsp</result> 
+		</action>
+		
+		
 		<action name="abcd" 
 		class="com.strut.FirstStrutAction"
 			method="login">
@@ -16,12 +42,6 @@
 			<result name="bad">error1.jsp</result> 
 		</action>
 		
-		<action name="strutlogin" 
-		class="com.strut.TestStrutAction"
-			method="login">
-			<result name="success">welcome.jsp</result>
-			<result name="failure">error.jsp</result> 
-		</action>
 		<!--  struts redirect/forward/text stream/json  -->
 		<action name="loginweb" class=
 		"com.strut.ProfileAction"

@@ -16,18 +16,8 @@ import com.spring.beans.qualifier.ICar;
 public class ProfileAction extends ActionSupport implements ServletRequestAware {
 	private static final long serialVersionUID = 1L;
 	 
-	// UI FORM DATA
-		public String userid;
-		public String pwd;
-		public String getUserid() { return userid; }
-		public void setUserid(String userid) { this.userid = userid; }
-		public String getPwd() { return pwd; }
-		public void setPwd(String pwd) { this.pwd = pwd; }
-	// UI FORM DATA
 
 	// STRUTS BUSINESS METHOD
-		@Autowired
-		ProfileBean pb;
 		public String execute() throws Exception {
 			UsersEntity ue = pb.getProfile(userid);
 			myList1.add("apple"); myList1.add("banana"); myList1.add("mango");
@@ -75,6 +65,8 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 		}
 	}
 
+	@Autowired
+	ProfileBean pb;
 	public String verify() throws Exception {
 		boolean res=pb.verifyCredentials(userid, pwd);
 		if(res)
@@ -83,13 +75,11 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 			inputStream = new StringBufferInputStream("failure");
 		return SUCCESS;
 	}
-
 	public String register() throws Exception {
 		pb.register(userid, pwd);
 		inputStream = new StringBufferInputStream("success");
 		return SUCCESS;
 	}
-
 	public String update() throws Exception {
 		boolean res=pb.update(userid, pwd);
 		if(res)
@@ -98,8 +88,8 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 			inputStream = new StringBufferInputStream("failure");
 		return SUCCESS;
 	}
-
 	public String delete() throws Exception {
+		
 		boolean res=pb.delete(userid);
 		if(res)
 			inputStream = new StringBufferInputStream("success");
@@ -107,11 +97,18 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 			inputStream = new StringBufferInputStream("failure");
 		return SUCCESS;
 	}
+	
+	
+	// UI FORM DATA
+	public String userid;
+	public String pwd;
+	public String getUserid() { return userid; }
+	public void setUserid(String userid) { this.userid = userid; }
+	public String getPwd() { return pwd; }
+	public void setPwd(String pwd) { this.pwd = pwd; }
+	// UI FORM DATA
 	public InputStream inputStream;
- 
-
-	HttpServletRequest httpReq;
-
+ 	HttpServletRequest httpReq;
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		// TODO Auto-generated method stub

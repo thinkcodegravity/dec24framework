@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 @Scope("session")
 public class CartBean {
+	boolean isloggedin=false;
 	ArrayList<String> cartList = new ArrayList<String>();
-	public ArrayList<String> add(String prodName){
+	public String add(String prodName){
 		cartList.add(prodName);
-		return cartList;
+		return cartList.toString();
 	}
 }

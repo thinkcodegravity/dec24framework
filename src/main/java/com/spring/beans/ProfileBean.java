@@ -46,6 +46,9 @@ public class ProfileBean {
 		ur.save(ue);
 	}
 	public boolean update(String userid, String pwd) {
+		
+		List<UsersEntity> addressResult=ur.findByFirstNameAndLastName("michael","moe");
+		
 		int i=ur.update(userid, pwd);
 		if(i==0)
 			return false;

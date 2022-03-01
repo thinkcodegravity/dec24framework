@@ -9,16 +9,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
+ 
 @SpringBootApplication
 @ComponentScan({ "com.config", "com.spring"  })
 @EnableJpaRepositories("com.hibernate")
 @EntityScan({"com.hibernate"})
 @EnableTransactionManagement
-public class Dec24frameworkApplication {
+public class Nov22frameworkApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Dec24frameworkApplication.class, args);
+		SpringApplication.run(Nov22frameworkApplication.class, args);
 	}
 	@Bean
 	public FilterRegistrationBean filterRegistrationBean() {
