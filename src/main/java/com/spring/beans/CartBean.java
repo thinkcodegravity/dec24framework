@@ -3,6 +3,7 @@ package com.spring.beans;
 import java.util.ArrayList;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service

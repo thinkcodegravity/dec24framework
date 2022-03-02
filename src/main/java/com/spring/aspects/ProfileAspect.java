@@ -17,7 +17,17 @@ import com.hibernate.springdata.UsersEntity;
 @Aspect
 @Component
 public class ProfileAspect  {
-
+	
+	
+	@After("within(com.spring.beans.ProfileBean)")
+	public void getResponseTime( ) throws Throwable{
+		System.out.println(" >>>>>>>>>>> INSIDE SPRING ASPECT LOGGING >>>>>>>>>>>");
+		System.out.println(" code to security");
+		System.out.println(" code to logging");
+		System.out.println(" code to validation");
+	}
+	
+/*
 	@AfterThrowing("within(com.spring.beans.ProfileBean)")
 	public void getResponseTime( ) throws Throwable{
 		// ******************** SECURITY *************************
@@ -32,7 +42,7 @@ public class ProfileAspect  {
 		// ******************** LOGGING *************************		
 		System.out.println("\n\n >>>>>>>>>>> SPRING ASPECT LOGGING >>>>>>>>>>>");
 	}
-	
+*/	
 	/*
 	@Around("execution(* com.spring.beans.ProfileBean.register(java.lang.String,java.lang.String))")
 	public UsersEntity getResponseTime(ProceedingJoinPoint  joinPoint) throws Exception{
@@ -64,7 +74,7 @@ public class ProfileAspect  {
 		System.out.println(">>>>>>>>>>> SPRING EXIT >>>>>>>>>>>");
 		return result;
 	}
-	*/
+	
 	/*
 	@Before("pointcut1()")
 	public Object advice1(ProceedingJoinPoint  joinPoint){

@@ -40,13 +40,14 @@ public class ProfileBean {
 			return true;
 	}
 	public void register(String userid, String pwd) {
+		System.out.println(" >>>>>>>>>>> IN SPRING SERVICE - REGISTER >>>>>>>>>>>");
 		UsersEntity ue=new UsersEntity();
 		ue.setUid(userid);
 		ue.setPwd(pwd);
 		ur.save(ue);
 	}
 	public boolean update(String userid, String pwd) {
-		
+		System.out.println(" >>>>>>>>>>> IN SPRING SERVICE - UPDATE >>>>>>>>>>>");
 		List<UsersEntity> addressResult=ur.findByFirstNameAndLastName("michael","moe");
 		
 		int i=ur.update(userid, pwd);
@@ -56,6 +57,7 @@ public class ProfileBean {
 			return true;
 	}
 	public boolean delete(String userid) {
+		System.out.println(" >>>>>>>>>>> IN SPRING SERVICE - DELETE >>>>>>>>>>>");
 		int i=ur.delete(userid);
 		if(i==0)
 			return false;
