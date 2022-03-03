@@ -48,8 +48,6 @@ public class ProfileBean {
 	}
 	public boolean update(String userid, String pwd) {
 		System.out.println(" >>>>>>>>>>> IN SPRING SERVICE - UPDATE >>>>>>>>>>>");
-		List<UsersEntity> addressResult=ur.findByFirstNameAndLastName("michael","moe");
-		
 		int i=ur.update(userid, pwd);
 		if(i==0)
 			return false;

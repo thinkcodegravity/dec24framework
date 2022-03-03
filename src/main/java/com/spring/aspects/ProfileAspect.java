@@ -19,7 +19,7 @@ import com.hibernate.springdata.UsersEntity;
 public class ProfileAspect  {
 	
 	
-	@After("within(com.spring.beans.ProfileBean)")
+	@Before("within(com.spring.beans.ProfileBean)")
 	public void getResponseTime( ) throws Throwable{
 		System.out.println(" >>>>>>>>>>> INSIDE SPRING ASPECT LOGGING >>>>>>>>>>>");
 		System.out.println(" code to security");
