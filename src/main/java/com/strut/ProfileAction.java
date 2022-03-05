@@ -8,6 +8,9 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.client.RestTemplate;
+
+import com.config.PropConfig;
+import com.config.YAMLConfig;
 import com.hibernate.springdata.UsersEntity;
 import com.opensymphony.xwork2.ActionSupport;
 import com.spring.beans.ProfileBean;
@@ -75,7 +78,16 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 			inputStream = new StringBufferInputStream("failure");
 		return SUCCESS;
 	}
+	@Autowired
+	YAMLConfig yamC;
+	@Autowired
+	PropConfig propC;
 	public String register() throws Exception {
+		System.out.println( yamC.getIp());
+		System.out.println( yamC.getPort());
+		System.out.println( propC.getIpaddress());
+		
+		
 		pb.register(userid, pwd);
 		inputStream = new StringBufferInputStream("success");
 		return SUCCESS;
