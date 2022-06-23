@@ -8,8 +8,8 @@
 	<!--  write your controller configuration -->
 	<action name="login11" 
 	class="com.strut.Login" method="validate">
-			<!-- result name="good">success.html</result-->
-			<result name="good" type="json"></result>
+			<result name="good">welcome1.jsp</result>
+			<!-- result name="good" type="json"></result-->
 			<!-- result name="bad" type="redirect">https://accounts.google.com/signup/v2/webcreateaccount?service=mail&amp;continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp</result-->
 			<result name="bad" type="stream">
 				<param name="contentType">text/html</param>

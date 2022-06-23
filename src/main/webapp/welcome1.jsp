@@ -7,8 +7,8 @@
 </head>
 <body>
 
-	Welcome <s:property value = "fName" /> <s:property value = "lName" /> 
-	
+	Welcome <s:property value = "firstName" /> <s:property value = "lastName" /> 
+	<br><br>
 	Printing list from java action program on webpage
 	<s:append var="appendIterator">
 		<s:param value="%{myList1}" /><s:param value="%{myList2}" />
@@ -18,14 +18,16 @@
 		<s:iterator value="%{#appendIterator}">  
 			<li>
 				<s:property />    
-			 </li>
+			</li>
 		</s:iterator>
 	</ul>
+	
 	<br>
 	Strut txt box
 	<br>
 	<s:textfield name="userId" label="Email Id" />
 	<br><br>
+	
 	html text box 
 	<br>
 	<input type="text" name="uid"/>
