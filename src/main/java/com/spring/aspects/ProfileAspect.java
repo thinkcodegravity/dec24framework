@@ -19,12 +19,12 @@ import com.hibernate.springdata.UsersEntity;
 public class ProfileAspect  {
 	
 	
-	@Before("within(com.spring.beans.ProfileBean)")
-	public void getResponseTime( ) throws Throwable{
-		System.out.println(" >>>>>>>>>>> INSIDE SPRING ASPECT LOGGING >>>>>>>>>>>");
-		System.out.println(" code to security");
-		System.out.println(" code to logging");
-		System.out.println(" code to validation");
+	@Around("within(com.spring.beans.CartBean)")
+	public String getResponseTime(ProceedingJoinPoint  joinPoint) throws Throwable{
+		System.out.println(" aspect code before");
+		String s=(String)joinPoint.proceed();
+		System.out.println("aspect code after");
+		return s;
 	}
 	
 /*

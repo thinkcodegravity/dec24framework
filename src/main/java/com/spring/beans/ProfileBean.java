@@ -14,6 +14,7 @@ import com.hibernate.springdata.UsersEntity;
 @Service
 @Scope("session")
 public class ProfileBean {
+	/*
 	public UsersEntity ue;
 	String name;
 	ArrayList<String> cartList = new ArrayList<String>();
@@ -21,7 +22,10 @@ public class ProfileBean {
 	// hibernate session
 	//public static SessionFactory sf = new Configuration().configure().buildSessionFactory();
 
-	// Spring Data DI	
+	// Spring Data DI
+	// Dependancy Injection
+	// Dependancy - global non-static variable
+	// injection - initializing/creating object
 	@Autowired
 	public UserRepository ur;
 
@@ -62,4 +66,5 @@ public class ProfileBean {
 		else
 			return true;
 	}
+	*/
 }

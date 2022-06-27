@@ -7,11 +7,30 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.spring.beans.LoginBean;
 
 // MODEL LAYER PROGRAM
 // Strut Action program
 public class Login implements ServletRequestAware{
 	// BUSINESS logic method
+	
+	// Login program depended on LoginBean
+	// for comparing userid pwd
+	// DI for login bean 
+	@Autowired
+	LoginBean lb;
+	
+	public String register() {
+		lb.createAccount(userid,password);
+		return "success";
+	}
+	public String delete() {
+		lb.deleteAccount(userid);
+		return "success";
+	}
+	
 	public String validate() {
 		//servletFeatures.getSession();
 		//servletFeatures.getAttribute("");
@@ -22,24 +41,10 @@ public class Login implements ServletRequestAware{
 		myList2.add("onion"); 
 		myList2.add("carrot"); 
 		myList2.add("tomato");
-		if(userid.equals("john") && password.equals("john1!"))
-		{
-			firstName="john";
-			lastName="doe";
-			return "good";
-		}
-		else if(userid.equals("jane") && password.equals("jane1!"))
-		{
-			firstName="jane";
-			lastName="joe";
-			return "good";
-		}
-		
-		else
-		{
+		String result=lb.validate(userid, password, firstName, lastName);
+		if(result.equals("bad"))
 			inputStream = new StringBufferInputStream("text response : login failed");
-			return "bad";
-		}
+		return result;
 	}
 	// FORM bean
 	public String firstName;

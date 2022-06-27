@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 public class CartBean {
 	boolean isloggedin=false;
 	ArrayList<String> cartList = new ArrayList<String>();
+	
+	
 	public String add(String prodName){
+		System.out.println("entered CartBean");
 		cartList.add(prodName);
 		return cartList.toString();
 	}
