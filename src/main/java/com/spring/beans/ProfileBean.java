@@ -14,7 +14,7 @@ import com.hibernate.springdata.UsersEntity;
 @Service
 @Scope("session")
 public class ProfileBean {
-	/*
+	 
 	public UsersEntity ue;
 	String name;
 	ArrayList<String> cartList = new ArrayList<String>();
@@ -66,5 +66,5 @@ public class ProfileBean {
 		else
 			return true;
 	}
-	*/
+	 
 }

@@ -22,15 +22,18 @@ import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
+@Component
 public class XMLConfig {
 	public XMLBean xmlObject = new XMLBean();
-	public File configFile = new File("src/main/resources/config.xml");
+	public File configFile = new File("./src/main/resources/config.xml");
 	@Autowired
-	public Marshaller marshaller;
+	public Marshaller marshaller; // write data into xml file
 	@Autowired
-	public Unmarshaller unmarshaller;
+	public Unmarshaller unmarshaller; // read data from xml file
 	public void writeToXml( ) throws IOException {
+		xmlObject.setIp("12.12.34.66");
+		xmlObject.setPort("12366");
+		
 		try (FileOutputStream os = new FileOutputStream(configFile);) {
 			this.marshaller.marshal(xmlObject, new StreamResult(os));
 		}

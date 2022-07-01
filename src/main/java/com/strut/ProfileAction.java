@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.client.RestTemplate;
 
 import com.config.PropConfig;
+import com.config.XMLConfig;
 import com.config.YAMLConfig;
 import com.hibernate.springdata.UsersEntity;
 import com.opensymphony.xwork2.ActionSupport;
@@ -78,11 +79,16 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 			inputStream = new StringBufferInputStream("failure");
 		return SUCCESS;
 	}
+	// dependency injection
 	@Autowired
 	YAMLConfig yamC;
 	@Autowired
 	PropConfig propC;
+	@Autowired
+	XMLConfig xmlC;
 	public String register() throws Exception {
+		xmlC.readFromXml();
+		
 		System.out.println( yamC.getIp());
 		System.out.println( yamC.getPort());
 		System.out.println( propC.getIpaddress());

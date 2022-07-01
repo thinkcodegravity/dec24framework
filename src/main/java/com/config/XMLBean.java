@@ -6,12 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "app")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class XMLBean {
+	// xmlelement allows mapping from xml
+	// element to java variable
 	@XmlElement(name = "ip")
     private String ip;
 	@XmlElement(name = "port")
     private String port;
 	@XmlElement(name = "website")
 	private String website;
+	
 	public String getWebsite() {
 		return website;
 	}
