@@ -26,9 +26,7 @@ import org.springframework.stereotype.Component;
 public class XMLConfig {
 	public XMLBean xmlObject = new XMLBean();
 	public File configFile = new File("./src/main/resources/config.xml");
-	@Autowired
 	public Marshaller marshaller; // write data into xml file
-	@Autowired
 	public Unmarshaller unmarshaller; // read data from xml file
 	public void writeToXml( ) throws IOException {
 		xmlObject.setIp("12.12.34.66");

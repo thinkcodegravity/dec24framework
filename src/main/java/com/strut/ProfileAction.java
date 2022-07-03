@@ -84,11 +84,9 @@ public class ProfileAction extends ActionSupport implements ServletRequestAware 
 	YAMLConfig yamC;
 	@Autowired
 	PropConfig propC;
-	@Autowired
-	XMLConfig xmlC;
+	 
 	public String register() throws Exception {
-		xmlC.readFromXml();
-		
+ 		
 		System.out.println( yamC.getIp());
 		System.out.println( yamC.getPort());
 		System.out.println( propC.getIpaddress());
